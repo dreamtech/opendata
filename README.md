@@ -16,12 +16,12 @@ Y motivar a otras instituciones interesadas a liberar su datos de manera abierta
 Objetivos 
 ========
 
-* Respete los principios de la iniciativa open data.
-* Una aplicación intuitiva para todo público. 
-* Permita busquedas personalizadas.
+* Respetar los principios de la iniciativa open data
+* Una aplicación intuitiva para todo público 
+* Permitir busquedas personalizadas
 * Representar la data del gobierno
-* Descarga de data consultada en diferentes formatos.
-* Lograr que la aplicación sea accesible desde tanto en dispositivos móviles como de escritorio.
+* Permitir la descarga de data consultada en diferentes formatos
+* Lograr que la aplicación sea accesible desde tanto en dispositivos móviles como de escritorio
 
 
 Dream{tech}

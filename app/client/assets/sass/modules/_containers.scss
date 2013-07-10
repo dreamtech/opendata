@@ -1,0 +1,78 @@
+body {
+  background-image: url(#{$imagesDirectory}});
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.report body {
+  background: none;
+}
+
+h1, h2, h3 {
+  text-shadow: 1px 1px 1px #00abfd;
+}
+
+
+div#title{
+  h1 {
+    margin-bottom: 4%;
+    span{
+      color: #0075b3;
+    }
+    i{
+      position: relative;
+      top: 8px;
+      color: #0088cc;
+    }
+  }
+}
+
+div#advanced-search {
+  margin-top: 1%;
+  border: 2px solid $blue;
+  padding: 1%;
+  border-radius: 5px;
+}
+
+div#search {
+  margin-top: 2%;
+}
+
+.content {
+  background-color: $white;
+  border-radius: 6px;
+  padding: 1%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+
+
+div#footer {
+  margin-top: 5%;
+}
+
+form.form-horizontal{
+  span,input,textarea{margin-top: 3%}
+
+}
+
+div#social-buttons{
+  a{
+    @extend .none;
+  }
+}
+
+/*
+div.gradient-separator{
+  margin: 0;
+  width: 100%;
+  height: 100px;
+  @include opacity(0.4);
+  background: rgb(30, 80, 255);
+  background: -moz-linear-gradient(269deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
+  background: -webkit-linear-gradient(269deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
+  background: -o-linear-gradient(269deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
+  background: -ms-linear-gradient(269deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(359deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
+}*/

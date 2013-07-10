@@ -1,0 +1,9 @@
+a.none{
+  margin: 0 1% 0 1%;
+  @include transition(all);
+  @include transition-duration(250ms);
+  &:hover{
+    text-decoration: none;
+  }
+
+}

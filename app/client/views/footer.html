@@ -1,0 +1,43 @@
+<template name="footer">
+    <div class="gradient-separator"></div>
+    <hr/>
+    <div id="social-buttons" class="text-center">
+        <h5>Comparte</h5>
+
+        <p>
+            <a class="none" href="#twitter"><i class="icon-twitter icon-2x"></i></a>
+            <a class="none" href="#facebook"><i class="icon-facebook icon-2x"></i></a>
+            <a class="none" href="youtube"><i class="icon-github  icon-2x"></i></a>
+        </p>
+    </div>
+    </div>
+
+
+    <!--- Modal para el formulario de sugerencias -->
+    <div id="myModal" class="modal hide fade">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Envia tus sugerencias</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-user"></i></span>
+                    <input class="span4" type="text" placeholder="Nombre">
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-envelope"></i></span>
+                    <input class="span4" type="text" placeholder="Correo Electronico">
+                </div>
+
+                <div>
+                    <textarea class="input-block-level" rows="4">Tu sugerencia...</textarea>
+                </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a id="btnModalClose" href="#" class="btn-blue btn-large " data-dismiss="modal">Enviar</a>
+        </div>
+</template>

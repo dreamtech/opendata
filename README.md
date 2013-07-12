@@ -24,7 +24,7 @@ Objetivos
 * Lograr que la aplicación sea accesible desde tanto en dispositivos móviles como de escritorio
 
 
-Dream{tech}
+Dream{Tech}
 =============
 ### Integrantes:
 

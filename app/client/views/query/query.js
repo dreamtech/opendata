@@ -23,7 +23,7 @@ Template.query.events({
 			return 
 		}
 		Meteor.call("autocomplete",value,function  (error,result) {
-			data = Keywords.find({name:{$regex:"/*"+value+"*"}},{limit:10});
+			data = Keywords.find();
 			data.forEach(function  (doc) {
 				datos.push(doc);
 			})

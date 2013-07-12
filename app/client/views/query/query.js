@@ -15,23 +15,18 @@ Template.query.events({
 
 		Session.set("querySearching",true);
 		Session.set("queryDataLoaded",null);
-		datos = [];
 
 		if(!value)
 		{
-		Session.set("querySearching",false);
+			Session.set("querySearching",false);
 			return 
 		}
 		Meteor.call("autocomplete",value,function  (error,result) {
-			data = Keywords.find();
-			data.forEach(function  (doc) {
-				datos.push(doc);
-			})
-			// console.log(data.collection.docs);
-			// console.log(datos);
+			data = Keywords.find().fetch()
+			
 			Session.set("querySearching",null);
 			Session.set("queryDataLoaded",true);
-			Session.set("queryResults",datos);	
+			Session.set("queryResults",data);	
 			
 		});
 

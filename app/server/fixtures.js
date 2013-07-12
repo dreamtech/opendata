@@ -2,7 +2,7 @@
 
 if(Keywords.find().count() === 0){
 
-	Keywords.insert({name:"provincia"});
+	Keywords.insert({name:"provincia",collections:['provincias']});
 	Keywords.insert({name:"ciudad"});
 	Keywords.insert({name:"distrito municipal"});
 	Keywords.insert({name:"municipio"});
@@ -15357,7 +15357,6 @@ if(Schools.find().count() === 0){
 		];
 
 	for (var i = escuelas.length - 1; i >= 0; i--) {
-		console.log(i);
 		Schools.insert(escuelas[i]);
 	};
 	

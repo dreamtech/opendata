@@ -8,10 +8,11 @@ body {
   background: none;
 }
 
-h1, h2, h3 {
-  text-shadow: 1px 1px 1px #00abfd;
-}
 
+div.centered{
+  float: none !important;
+  margin: 0 auto !important;
+}
 
 div#title{
   h1 {
@@ -37,6 +38,13 @@ div#input-search{
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 0;
+}
+
+.container-btn{
+  position: relative;
+  width: 112%;
+  bottom: 21%;
+  left: 6%;
 }
 
 div#advanced-search {
@@ -74,6 +82,12 @@ div#search {
   margin-top: 2%;
 }
 
+div.loading{
+  i{
+    color:$blue;
+  }
+  font-weight: bold;
+}
 div#footer {
   margin-top: 5%;
 }

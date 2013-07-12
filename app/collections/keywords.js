@@ -1,1 +1,0 @@
-Keywords = new Meteor.Collection("keywords");

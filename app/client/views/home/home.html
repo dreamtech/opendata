@@ -5,13 +5,15 @@
                     <h1 class="text-center"><i class="icon-cloud-download icon-2x"></i>OpenData</h1>
                 </div>
                 <div id="input-search" class="span5 offset3 text-center">
-                    <input type="text" placeholder="ej: Republica Dominicana">
+                    <input id="input" type="text" placeholder="ej: Republica Dominicana">
                     <a id="btn-advanced-search" href="#advanced-search"><i class="icon-chevron-down"></i></a>
                 </div>
 
                 <button id="btn-search" class="span1" type="submit"><i class="icon-search icon-white"></i></button>
 
-                <!-- Advance Search -->
+               
+            
+                            <!-- Advance Search -->
                 <!--<div id="advanced-search" class="span5 offset3">
                     <div class="control-group">
                         <label class="control-label" for="txtLugar">Lugar:</label>
@@ -41,7 +43,20 @@
                 </div>-->
             </div>
 
+
         </div>
+         <div class="well">
+                {{#if isSearching}}
+                    <label>loading.....</label>
+                {{/if}}
+                {{#if isDataLoaded}}
+                    <ul> 
+                        {{#each queryResults}}
+                            <li>{{name}}</li>
+                        {{/each}}
+                    </ul>
+                {{/if}}
+                </div>
     </div>
 
 </template>

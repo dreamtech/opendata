@@ -11,12 +11,12 @@
 			{{#each queryResults}}
 				<li>{{name}}</li>
 			{{/each}}
+			{{#if isDataLoadedCollections}}
+				{{#each queryResultsCollections}}
+					<li>{{name}}</li>
+				{{/each}}
+			{{/if}}
 		</ul>
-
-		<ul> 
-			{{#each getCollections}}
-				<li>{{this}}</li>
-			{{/each}}
-		</ul>
+			
 	{{/if}}
 </template>

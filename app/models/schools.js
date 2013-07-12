@@ -10,6 +10,6 @@ Collections['municipios'] = Municipios;
 Collections['distritos'] = Distritos;
 Collections['secciones'] = Secciones;
 
-for (colName in Collections) {
-  console.log(colName);
-}
+// for (colName in Collections) {
+//   console.log(colName);
+// }

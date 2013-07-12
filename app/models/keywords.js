@@ -1,5 +1,4 @@
 Keywords = new Meteor.Collection("keywords");
-
 Meteor.methods({
 	"autocomplete":function  (query) {
 
@@ -8,3 +7,5 @@ Meteor.methods({
 		});
 	}
 });
+
+Collections['keywords'] = Keywords;

@@ -1,15 +1,18 @@
 <template name="home">
     <div id="content" class="row-fluid">
-            <div id="search" class="offset1 span10 content ">
+            <div id="search" class="span10 content centered">
                 <div id="title">
                     <h1 class="text-center"><i class="icon-cloud-download icon-2x"></i>OpenData</h1>
                 </div>
-                <div id="input-search" class="span5 offset3 text-center">
+                <div id="input-search" class="centered span5">
                     <input id="input" type="text" placeholder="ej: Republica Dominicana">
+                 <div class="container-btn">
                     <a id="btn-advanced-search" href="#advanced-search"><i class="icon-chevron-down"></i></a>
+                    <button id="btn-search" type="submit"><i class="icon-search icon-white"></i></button>
+                     </div>
                 </div>
 
-                <button id="btn-search" class="span1" type="submit"><i class="icon-search icon-white"></i></button>
+
 
                
             
@@ -45,12 +48,13 @@
 
 
         </div>
-         <div class="well">
+
+         <div class="centered span4">
                 {{#if isSearching}}
-                    <label>loading.....</label>
+                    <div class="loading"><i class="icon-spinner icon-spin icon-large"></i> Cargando...</div>
                 {{/if}}
                 {{#if isDataLoaded}}
-                    <ul> 
+                    <ul class="list-stripped">
                         {{#each queryResults}}
                             <li>{{name}}</li>
                         {{/each}}

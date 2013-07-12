@@ -1,5 +1,5 @@
 Meteor.publish 'autocompleteKeywords', (query) ->
   Keywords.find
     name: new RegExp(query, 'i'),
-      fields: { name: 1 },
+      sort: { name: -1 },
       limit:20

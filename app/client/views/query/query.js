@@ -12,25 +12,20 @@ Template.query.isDataLoaded = function  () {
 Template.query.events({
 	"keyup #input":function  () {
 		value = $("#input").val();
-
-		Session.set("querySearching",true);
-		Session.set("queryDataLoaded",null);
-
-		if(!value)
-		{
-			Session.set("querySearching",false);
-			return 
-		}
-		Meteor.call("autocomplete",value,function  (error,result) {
-			data = Keywords.find().fetch()
-			
-			Session.set("querySearching",null);
-			Session.set("queryDataLoaded",true);
-			Session.set("queryResults",data);	
-			
-		});
-
-
-		// console.log(data.db_objects); 
+		Session.set("query",value);
 	}
+});
+Deps.autorun(function() {
+
+  sub = Meteor.subscribe("autocompleteKeywords", Session.get("query"));
+  if (sub.ready()) {
+		data = Keywords.find().fetch();
+		Session.set("queryResults",data);
+     	Session.set("querySearching", false);
+		Session.set("queryDataLoaded",true);
+
+  } else {
+		Session.set("queryDataLoaded",false);
+     	Session.set("querySearching", true);
+  }
 });

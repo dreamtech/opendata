@@ -55,16 +55,17 @@ Template.query.events({
 		value = $("#input").val();
 		value = value.split(" ");
 		queryKeyword = value[0];
-
+		str = "";
 		Session.set("queryKeyword",queryKeyword);
-		if(value[1]){
+		for (var i = 1; i < value.length; i++) {
+			str += value[i]+" ";
+		};
+		str= str.substring(0,str.length-1);
+		if(str){
 			collections = Template.query.getCollections();
-			queryCollections  = value[1];
+			queryCollections  = str;
 			Session.set("currentCollection",collections[0]);
 			Session.set("queryCollections",queryCollections);
-			// if(queryCollections){
-			// 	Session.set("queryCollections",queryCollections)
-			// }
 
 		}
 

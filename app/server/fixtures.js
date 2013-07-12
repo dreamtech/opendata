@@ -3,6 +3,10 @@
 if(Keywords.find().count() === 0){
 
 	Keywords.insert({name:"provincia",collections:'provincias'});
+	Keywords.insert({name:"escuela",collections:'schools'});
+	Keywords.insert({name:"escuelas",collections:'schools'});
+	Keywords.insert({name:"colegio",collections:'schools'});
+	Keywords.insert({name:"colegios",collections:'schools'});
 	Keywords.insert({name:"ciudad",collections:'municipios'});
 	Keywords.insert({name:"distrito municipal",collections:'distritos'});
 	Keywords.insert({name:"municipio",collections:'municipios'});

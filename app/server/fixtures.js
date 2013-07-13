@@ -2,12 +2,16 @@
 
 if(Keywords.find().count() === 0){
 
-	Keywords.insert({name:"provincia",collections:['provincias']});
-	Keywords.insert({name:"ciudad"});
-	Keywords.insert({name:"distrito municipal"});
-	Keywords.insert({name:"municipio"});
-	Keywords.insert({name:"secciones"});
-	Keywords.insert({name:"barrio"});
+	Keywords.insert({name:"provincia",collections:'provincias'});
+	Keywords.insert({name:"escuela",collections:'schools'});
+	Keywords.insert({name:"escuelas",collections:'schools'});
+	Keywords.insert({name:"colegio",collections:'schools'});
+	Keywords.insert({name:"colegios",collections:'schools'});
+	Keywords.insert({name:"ciudad",collections:'municipios'});
+	Keywords.insert({name:"distrito municipal",collections:'distritos'});
+	Keywords.insert({name:"municipio",collections:'municipios'});
+	Keywords.insert({name:"secciones",collections:'secciones'});
+	Keywords.insert({name:"barrio",collections:'secciones'});
 }
 if(Provincias.find().count() === 0){
 	provincias = [
@@ -15359,6 +15363,6 @@ if(Schools.find().count() === 0){
 	for (var i = escuelas.length - 1; i >= 0; i--) {
 		Schools.insert(escuelas[i]);
 	};
-	
+	console.log("Finish fixtures");
 
 }

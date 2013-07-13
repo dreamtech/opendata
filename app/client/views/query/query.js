@@ -9,28 +9,99 @@ Template.query.isSearching = function  () {
 Template.query.isDataLoaded = function  () {
 	return Session.get("queryDataLoaded");
 }
+Template.query.queryResultsCollections = function  () {
+	return Session.get('queryResultsCollections')
+}
+
+Template.query.isSearchingCollections = function  () {
+	return Session.get("querySearchingCollections");
+}
+Template.query.isDataLoadedCollections = function  () {
+	return Session.get("queryDataLoadedCollections");
+}
+
+Template.query.isCollections = function  () {
+	if(!Session.get("queryDataLoaded"))
+	{
+		return false;
+	}
+
+	collections = {};
+	data = Session.get("queryResults");
+	data.forEach(function  (doc) {
+		collections[doc.collections] = doc.collections;
+
+	});
+	datos=[];
+	for(col in collections)
+	{
+		datos.push(col);
+	}
+	Session.set('collections',datos);
+	// return collections;
+	return true; 
+}
+
+Template.query.getCollections = function  () {
+	if(!Template.query.isCollections())
+	{
+		return ['provincias'];
+	}
+	return Session.get("collections");
+}
+
 Template.query.events({
 	"keyup #input":function  () {
 		value = $("#input").val();
+		value = value.split(" ");
+		queryKeyword = value[0];
+		str = "";
+		Session.set("queryKeyword",queryKeyword);
+		for (var i = 1; i < value.length; i++) {
+			str += value[i]+" ";
+		};
+		str= str.substring(0,str.length-1);
+		if(str){
+			collections = Template.query.getCollections();
+			queryCollections  = str;
+			Session.set("currentCollection",collections[0]);
+			Session.set("queryCollections",queryCollections);
 
-		Session.set("querySearching",true);
-		Session.set("queryDataLoaded",null);
-
-		if(!value)
-		{
-			Session.set("querySearching",false);
-			return 
 		}
-		Meteor.call("autocomplete",value,function  (error,result) {
-			data = Keywords.find().fetch()
-			
-			Session.set("querySearching",null);
-			Session.set("queryDataLoaded",true);
-			Session.set("queryResults",data);	
-			
-		});
 
-
-		// console.log(data.db_objects); 
+		
 	}
+});
+Deps.autorun(function() {
+  try{
+	  sub = Meteor.subscribe("autocompleteKeywords", Session.get("queryKeyword"));
+	  if (sub.ready()) {
+			data = Keywords.find().fetch();
+			Session.set("queryResults",data);
+	     	Session.set("querySearching", false);
+			Session.set("queryDataLoaded",true);
+
+	  } else {
+			Session.set("queryDataLoaded",false);
+	     	Session.set("querySearching", true);
+	  }
+
+	  sub2 = Meteor.subscribe("autocompleteCollections",Session.get("currentCollection"), Session.get("queryCollections"));
+	    if (sub2.ready()) {
+	    	collection = Session.get("currentCollection");
+
+			data = Collections[collection].find().fetch();
+
+			Session.set("queryResultsCollections",data);
+	     	Session.set("querySearchingCollections", false);
+			Session.set("queryDataLoadedCollections",true);
+
+	  } else {
+			Session.set("querySearchingCollections",false);
+	     	Session.set("querySearchingCollections", true);
+	  }
+	}catch(ex){
+		console.log("Explotion!!");
+	}
+
 });

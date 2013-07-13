@@ -7,8 +7,18 @@
             <input id="input" type="text" placeholder="ej: Republica Dominicana">
             <a id="btn-advanced-search" class="btn-blue add-on" href="#advanced-search"><i class="icon-chevron-down"></i></a>
             <button id="btn-search" class="btn-blue add-on" type="submit"><i class="icon-search icon-white"></i> Buscar</button>
-
         </div>
+
+        <div id="advanced-search" class="span5 centerd  input-blue">
+            <a href="#close"><i></i></a>
+            <div class="input control-group">
+                <select>
+                    <option>jacobo</option>
+                </select>
+            </div>
+            <button class="btn-blue">Buscar</button>
+        </div>
+
 	<div class="centered span4">
         {{#if isSearching}}
         <div class="loading"><i class="icon-spinner icon-spin icon-large"></i> Cargando...</div>

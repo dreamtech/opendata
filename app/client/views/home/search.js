@@ -105,3 +105,13 @@ Deps.autorun(function() {
 	}
 
 });
+
+Template.search.rendered = function(){
+    $('#btn-advanced-search').on('click',function(){
+        $('div#advanced-search').show();
+    });
+
+    $('#close').on('click', function(){
+        $('div#advanced-search').hide();
+    });
+}

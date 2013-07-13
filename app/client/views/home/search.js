@@ -108,10 +108,11 @@ Deps.autorun(function() {
 
 Template.search.rendered = function(){
     $('#btn-advanced-search').on('click',function(){
-        $('div#advanced-search').show();
+        $('div#advanced-search').removeClass('hidden');
+        $(this)
     });
 
     $('#close').on('click', function(){
-        $('div#advanced-search').hide();
+        $('div#advanced-search').addClass('hidden');
     });
 }

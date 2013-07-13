@@ -10704,18 +10704,19 @@ div#input-search {
 
 /* line 50, ../sass/modules/_containers.scss */
 div#advanced-search {
-  margin-top: 1%;
+  position: absolute;
+  background-color: white;
   border: 2px solid #0088cc;
   padding: 1%;
   border-radius: 5px;
 }
 
-/* line 57, ../sass/modules/_containers.scss */
+/* line 58, ../sass/modules/_containers.scss */
 div#search {
   margin-top: 2%;
 }
 
-/* line 62, ../sass/modules/_containers.scss */
+/* line 63, ../sass/modules/_containers.scss */
 #nav {
   margin-top: 1%;
   -webkit-transition: all;
@@ -10727,17 +10728,17 @@ div#search {
   -o-transition-duration: 300ms;
   transition-duration: 300ms;
 }
-/* line 67, ../sass/modules/_containers.scss */
+/* line 68, ../sass/modules/_containers.scss */
 #nav:hover {
   opacity: 0.8;
   cursor: pointer;
 }
-/* line 72, ../sass/modules/_containers.scss */
+/* line 73, ../sass/modules/_containers.scss */
 #nav ul.dropdown-menu {
   left: 55px !important;
 }
 
-/* line 77, ../sass/modules/_containers.scss */
+/* line 78, ../sass/modules/_containers.scss */
 .content {
   background-color: white;
   border-radius: 6px;
@@ -10746,21 +10747,21 @@ div#search {
   margin-top: 2%;
 }
 
-/* line 85, ../sass/modules/_containers.scss */
+/* line 86, ../sass/modules/_containers.scss */
 div.loading {
   font-weight: bold;
 }
-/* line 86, ../sass/modules/_containers.scss */
+/* line 87, ../sass/modules/_containers.scss */
 div.loading i {
   color: #0088cc;
 }
 
-/* line 91, ../sass/modules/_containers.scss */
+/* line 92, ../sass/modules/_containers.scss */
 div#footer {
   margin-top: 5%;
 }
 
-/* line 96, ../sass/modules/_containers.scss */
+/* line 97, ../sass/modules/_containers.scss */
 form.form-horizontal span, form.form-horizontal input, form.form-horizontal textarea {
   margin-top: 3%;
 }

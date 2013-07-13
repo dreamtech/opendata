@@ -1,0 +1,21 @@
+ul.list-stripped{
+
+    list-style: none;
+
+    li{
+      border-radius: 3px;
+      border-bottom: 1px solid #eeeeee;
+      padding: 1%;
+      @include transition(all);
+      @include transition-duration(140ms);
+      &:hover{
+        background-color: $blue;
+        color: #ffffff;
+
+      }
+
+      &:last-child{
+        border: none;
+      }
+    }
+  }

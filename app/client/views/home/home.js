@@ -1,15 +1,15 @@
 
-Template.query.queryResults = function  () {
+Template.home.queryResults = function  () {
 	return Session.get('queryResults')
 }
 
-Template.query.isSearching = function  () {
+Template.home.isSearching = function  () {
 	return Session.get("querySearching");
 }
-Template.query.isDataLoaded = function  () {
+Template.home.isDataLoaded = function  () {
 	return Session.get("queryDataLoaded");
 }
-Template.query.events({
+Template.home.events({
 	"keyup #input":function  () {
 		value = $("#input").val();
 

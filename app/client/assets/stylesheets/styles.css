@@ -10563,31 +10563,20 @@ input[type="tel"], input[type="color"], .uneditable-input {
   margin-bottom: 0;
 }
 
-/* line 9, ../sass/modules/_inputs.scss */
-div#input-search {
-  height: 45px;
-  padding: 5px;
-  float: left;
-  font-size: 18px;
-  border: 2px solid #0088cc;
-  border-top-right-radius: 0;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 0;
-}
-/* line 20, ../sass/modules/_inputs.scss */
+/* line 11, ../sass/modules/_inputs.scss */
 div#input-search input[type=text] {
+  float: left;
   margin-right: 1%;
   border: 0;
   box-shadow: 0 0 0;
   width: 80%;
 }
-/* line 25, ../sass/modules/_inputs.scss */
+/* line 17, ../sass/modules/_inputs.scss */
 div#input-search input[type=text]:focus {
   box-shadow: 0 0 0;
 }
 
-/* line 32, ../sass/modules/_inputs.scss */
+/* line 24, ../sass/modules/_inputs.scss */
 .btn-blue, #btn-iniciar, #btnModalClose, #btn-search {
   background: radial-gradient(#0088cc, #0081c2);
   border: 2px;
@@ -10603,47 +10592,27 @@ div#input-search input[type=text]:focus {
   -o-transition-duration: 300ms;
   transition-duration: 300ms;
 }
-/* line 41, ../sass/modules/_inputs.scss */
+/* line 33, ../sass/modules/_inputs.scss */
 .btn-blue:hover, #btn-iniciar:hover, #btnModalClose:hover, #btn-search:hover {
-  opacity: 0.8;
   text-decoration: none;
+  box-shadow: 0 0 8px #0088cc;
 }
 
-/* line 47, ../sass/modules/_inputs.scss */
-#nav {
-  margin-top: 1%;
-  -webkit-transition: all;
-  -moz-transition: all;
-  -o-transition: all;
-  transition: all;
-  -webkit-transition-duration: 300ms;
-  -moz-transition-duration: 300ms;
-  -o-transition-duration: 300ms;
-  transition-duration: 300ms;
-}
-/* line 52, ../sass/modules/_inputs.scss */
-#nav:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
-/* line 57, ../sass/modules/_inputs.scss */
-#nav ul.dropdown-menu {
-  left: 55px !important;
-}
-
-/* line 62, ../sass/modules/_inputs.scss */
+/* line 39, ../sass/modules/_inputs.scss */
 #btn-iniciar {
   padding: 1%;
   margin-top: 1%;
 }
 
-/* line 68, ../sass/modules/_inputs.scss */
+/* line 45, ../sass/modules/_inputs.scss */
 #btnModalClose {
   padding: 1%;
 }
 
-/* line 73, ../sass/modules/_inputs.scss */
+/* line 50, ../sass/modules/_inputs.scss */
 #btn-search {
+  float: right;
+  width: 15%;
   margin: 0;
   height: 45px;
   border-bottom-left-radius: 0;
@@ -10652,20 +10621,19 @@ div#input-search input[type=text]:focus {
   border-bottom-right-radius: 4px;
   font-size: 20px;
 }
-/* line 83, ../sass/modules/_inputs.scss */
+/* line 62, ../sass/modules/_inputs.scss */
 #btn-search [class^="icon-"], #btn-search [class*=" icon-"] {
   margin-top: 3px;
 }
 
-/* line 89, ../sass/modules/_inputs.scss */
+/* line 67, ../sass/modules/_inputs.scss */
 [class^="icon-"], [class*=" icon-"] {
   margin-right: 3px;
 }
 
-/* line 93, ../sass/modules/_inputs.scss */
-#btn-advanced-search {
-  float: right;
-  top: 4px;
+/* line 71, ../sass/modules/_inputs.scss */
+a#btn-advanced-search {
+  top: 10px;
   position: relative;
   -webkit-transition: all;
   -moz-transition: all;
@@ -10676,8 +10644,8 @@ div#input-search input[type=text]:focus {
   -o-transition-duration: 200ms;
   transition-duration: 200ms;
 }
-/* line 99, ../sass/modules/_inputs.scss */
-#btn-advanced-search:hover {
+/* line 76, ../sass/modules/_inputs.scss */
+a#btn-advanced-search:hover {
   text-decoration: none;
 }
 
@@ -10693,27 +10661,49 @@ body {
   background: none;
 }
 
-/* line 11, ../sass/modules/_containers.scss */
-h1, h2, h3 {
-  text-shadow: 1px 1px 1px #00abfd;
+/* line 12, ../sass/modules/_containers.scss */
+div.centered {
+  float: none !important;
+  margin: 0 auto !important;
 }
 
-/* line 17, ../sass/modules/_containers.scss */
+/* line 18, ../sass/modules/_containers.scss */
 div#title h1 {
   margin-bottom: 4%;
 }
-/* line 19, ../sass/modules/_containers.scss */
+/* line 20, ../sass/modules/_containers.scss */
 div#title h1 span {
   color: #0075b3;
 }
-/* line 22, ../sass/modules/_containers.scss */
+/* line 23, ../sass/modules/_containers.scss */
 div#title h1 i {
   position: relative;
   top: 8px;
   color: #0088cc;
 }
 
-/* line 30, ../sass/modules/_containers.scss */
+/* line 31, ../sass/modules/_containers.scss */
+div#input-search {
+  height: 45px;
+  padding: 5px;
+  float: left;
+  font-size: 18px;
+  border: 2px solid #0088cc;
+  border-top-right-radius: 0;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 0;
+}
+
+/* line 43, ../sass/modules/_containers.scss */
+.container-btn {
+  position: relative;
+  width: 112%;
+  bottom: 21%;
+  left: 6%;
+}
+
+/* line 50, ../sass/modules/_containers.scss */
 div#advanced-search {
   margin-top: 1%;
   border: 2px solid #0088cc;
@@ -10721,12 +10711,34 @@ div#advanced-search {
   border-radius: 5px;
 }
 
-/* line 37, ../sass/modules/_containers.scss */
+/* line 57, ../sass/modules/_containers.scss */
 div#search {
   margin-top: 2%;
 }
 
-/* line 41, ../sass/modules/_containers.scss */
+/* line 62, ../sass/modules/_containers.scss */
+#nav {
+  margin-top: 1%;
+  -webkit-transition: all;
+  -moz-transition: all;
+  -o-transition: all;
+  transition: all;
+  -webkit-transition-duration: 300ms;
+  -moz-transition-duration: 300ms;
+  -o-transition-duration: 300ms;
+  transition-duration: 300ms;
+}
+/* line 67, ../sass/modules/_containers.scss */
+#nav:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+/* line 72, ../sass/modules/_containers.scss */
+#nav ul.dropdown-menu {
+  left: 55px !important;
+}
+
+/* line 77, ../sass/modules/_containers.scss */
 .content {
   background-color: white;
   border-radius: 6px;
@@ -10735,29 +10747,25 @@ div#search {
   margin-top: 2%;
 }
 
-/* line 51, ../sass/modules/_containers.scss */
+/* line 85, ../sass/modules/_containers.scss */
+div.loading {
+  font-weight: bold;
+}
+/* line 86, ../sass/modules/_containers.scss */
+div.loading i {
+  color: #0088cc;
+}
+
+/* line 91, ../sass/modules/_containers.scss */
 div#footer {
   margin-top: 5%;
 }
 
-/* line 56, ../sass/modules/_containers.scss */
+/* line 96, ../sass/modules/_containers.scss */
 form.form-horizontal span, form.form-horizontal input, form.form-horizontal textarea {
   margin-top: 3%;
 }
 
-/*
-div.gradient-separator{
-  margin: 0;
-  width: 100%;
-  height: 100px;
-  @include opacity(0.4);
-  background: rgb(30, 80, 255);
-  background: -moz-linear-gradient(269deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
-  background: -webkit-linear-gradient(269deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
-  background: -o-linear-gradient(269deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
-  background: -ms-linear-gradient(269deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
-  background: linear-gradient(359deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
-}*/
 /* line 1, ../sass/modules/_links.scss */
 a.none, div#social-buttons a {
   margin: 0 1% 0 1%;
@@ -10773,6 +10781,34 @@ a.none, div#social-buttons a {
 /* line 5, ../sass/modules/_links.scss */
 a.none:hover, div#social-buttons a:hover {
   text-decoration: none;
+}
+
+/* line 1, ../sass/modules/_lists.scss */
+ul.list-stripped {
+  list-style: none;
+}
+/* line 5, ../sass/modules/_lists.scss */
+ul.list-stripped li {
+  border-radius: 3px;
+  border-bottom: 1px solid #eeeeee;
+  padding: 1%;
+  -webkit-transition: all;
+  -moz-transition: all;
+  -o-transition: all;
+  transition: all;
+  -webkit-transition-duration: 140ms;
+  -moz-transition-duration: 140ms;
+  -o-transition-duration: 140ms;
+  transition-duration: 140ms;
+}
+/* line 11, ../sass/modules/_lists.scss */
+ul.list-stripped li:hover {
+  background-color: #0088cc;
+  color: #ffffff;
+}
+/* line 17, ../sass/modules/_lists.scss */
+ul.list-stripped li:last-child {
+  border: none;
 }
 
 @font-face {
@@ -10791,4 +10827,9 @@ a.none:hover, div#social-buttons a:hover {
   src: url("//netdna.bootstrapcdn.com/font-awesome/3.2.1/font/fontawesome-webfont.eot?#iefix&v=3.2.1") format("embedded-opentype"), url("//netdna.bootstrapcdn.com/font-awesome/3.2.1/font/fontawesome-webfont.woff?v=3.2.1") format("woff"), url("//netdna.bootstrapcdn.com/font-awesome/3.2.1/font/fontawesome-webfont.ttf?v=3.2.1") format("truetype"), url("//netdna.bootstrapcdn.com/font-awesome/3.2.1/font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.1") format("svg");
   font-weight: normal;
   font-style: normal;
+}
+
+/* line 25, ../sass/modules/_typography.scss */
+h1, h2, h3 {
+  text-shadow: 1px 1px 1px #00abfd;
 }

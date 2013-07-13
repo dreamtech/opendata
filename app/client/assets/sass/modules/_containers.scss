@@ -8,10 +8,11 @@ body {
   background: none;
 }
 
-h1, h2, h3 {
-  text-shadow: 1px 1px 1px #00abfd;
-}
 
+div.centered{
+  float: none !important;
+  margin: 0 auto !important;
+}
 
 div#title{
   h1 {
@@ -27,6 +28,25 @@ div#title{
   }
 }
 
+div#input-search{
+  height: 45px;
+  padding: 5px;
+  float: left;
+  font-size: 18px;
+  border: 2px solid #0088cc;
+  border-top-right-radius: 0;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 0;
+}
+
+.container-btn{
+  position: relative;
+  width: 112%;
+  bottom: 21%;
+  left: 6%;
+}
+
 div#advanced-search {
   margin-top: 1%;
   border: 2px solid $blue;
@@ -38,6 +58,22 @@ div#search {
   margin-top: 2%;
 }
 
+
+#nav{
+  margin-top: 1%;
+  @include transition(all);
+  @include transition-duration(300ms);
+
+  &:hover{
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  ul.dropdown-menu{
+    left:55px !important;
+  }
+}
+
 .content {
   background-color: $white;
   border-radius: 6px;
@@ -46,8 +82,12 @@ div#search {
   margin-top: 2%;
 }
 
-
-
+div.loading{
+  i{
+    color:$blue;
+  }
+  font-weight: bold;
+}
 div#footer {
   margin-top: 5%;
 }
@@ -62,17 +102,3 @@ div#social-buttons{
     @extend .none;
   }
 }
-
-/*
-div.gradient-separator{
-  margin: 0;
-  width: 100%;
-  height: 100px;
-  @include opacity(0.4);
-  background: rgb(30, 80, 255);
-  background: -moz-linear-gradient(269deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
-  background: -webkit-linear-gradient(269deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
-  background: -o-linear-gradient(269deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
-  background: -ms-linear-gradient(269deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
-  background: linear-gradient(359deg, rgb(30, 80, 255) 0%, rgb(255, 255, 255) 100%);
-}*/

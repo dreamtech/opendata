@@ -1,6 +1,16 @@
 <template name="query">
 
 	<input name="input" id="input">
-	{{queryResults}}
-
+	<br/>
+	<br/>
+	{{#if isSearching}}
+		<label>loading.....</label>
+	{{/if}}
+	{{#if isDataLoaded}}
+		<ul> 
+			{{#each queryResults}}
+				<li>{{name}}</li>
+			{{/each}}
+		</ul>
+	{{/if}}
 </template>

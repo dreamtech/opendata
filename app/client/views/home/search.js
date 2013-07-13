@@ -54,6 +54,12 @@ disabledClass = {'background-color':'',color:''};
 
 Template.search.rendered = function  () {
 
+	currentKeywords = Session.get("currentKeywords");
+	for(key in currentKeywords)
+	{
+		console.log(key);
+		$(".query-results [data-id="+currentKeywords[key]+"]").hide();	
+	}
 	// console.log($(".query-results li[selected=true]"));
     $(".query-results")
         .children()
@@ -73,6 +79,15 @@ Template.search.downSelect = function  () {
 
 	$(next).attr("selected",true);
 	$(next).css(activeClass);
+	// Session.set('selectedElement',next);
+
+}
+
+Template.search.keywordVisible = function  (id) {
+	if(Session.get("currentKeywords") == id)
+		return "hidden";
+	else 
+		return "";
 }
 Template.search.upSelect = function  () {
 
@@ -88,14 +103,18 @@ Template.search.upSelect = function  () {
 
 	$(prev).attr("selected",true);
 	$(prev).css(activeClass);
-	Session.set('selectedElement',prev);
 }
 
+Template.search.inputTex = "";
 
 Template.search.events({
 	"keyup #input":function  (e) {
-		
-		console.log(e.keyCode);
+	// Session.set('selectedElement',prev);
+		value = $("#input").val();
+		if(value.length < 5)
+		{	Session.set("currentKeywords",null);
+			Session.set("currentKeyword",null);
+		}
 		if(e.keyCode === 40)
 		{
 			Template.search.downSelect();
@@ -108,13 +127,39 @@ Template.search.events({
 			return;
 		}else if(e.keyCode === 13)
 		{
-			Template.search.upSelect();
+			selected = $(".query-results [selected=selected]");
+
+			if($(selected).data('id') === null)
+			{	
+				return;
+			}
+			text = $(selected).text();
+			currentKeywords = Session.get("currentKeywords") != null?Session.get("currentKeywords"):{};
+			dataId = $(selected).data('id');
+			currentKeywords[dataId] = dataId;
+			Session.set("currentKeywords",currentKeywords);
 			
-			return;
+			currentKeyword = Session.get("currentKeyword") != null?Session.get("currentKeyword"):"";
+			
+			if(!currentKeyword){
+				Session.set("currentKeyword",text);
+				console.log("asd");
+				console.log(text);
+				// text = "";
+			}
+			if (text != currentKeyword) {
+				text = currentKeyword + " " + text;
+			}else
+			{
+				text += " ";
+			}
+			// chosenText = Template.search.inputTex;
+			// console.log(text);
+			
+			// text = $(e.target).val();
+			text = text.trim();
+			$(e.target).val(text);
 		}
-
-
-		console.log("asd");
 		value = $("#input").val();
 		value = value.split(" ");
 		queryKeyword = value[0];
@@ -136,6 +181,11 @@ Template.search.events({
 	}
 });
 Deps.autorun(function() {
+	// Session.set("currentKeywordSelected","");
+	// Session.set("currentKeywords",{});
+	Session.set("queryResults",null);
+	Session.set("queryResultsCollections",null);
+
   try{
 	  sub = Meteor.subscribe("autocompleteKeywords", Session.get("queryKeyword"));
 	  if (sub.ready()) {

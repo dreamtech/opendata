@@ -16,13 +16,13 @@
         <div class="loading"><i class="icon-spinner icon-spin icon-large"></i> Cargando...</div>
         {{/if}}
         {{#if isDataLoaded}}
-        <ul class="list-stripped">
+        <ul class="list-stripped query-results">
             {{#each queryResults}}
-                <li>{{name}}</li>
+                <li selected='false' data-collection='{{ownCollection}}' data-id='{{_id}}' >{{name}}</li>
             {{/each}}
             {{#if isDataLoadedCollections}}
 				{{#each queryResultsCollections}}
-					<li>{{name}}</li>
+					 <li selected='false' data-collection='{{ownCollection}}' data-id='{{_id}}' >{{name}}</li>
 				{{/each}}
 			{{/if}}
         </ul>

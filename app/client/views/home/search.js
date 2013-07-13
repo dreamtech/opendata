@@ -49,9 +49,72 @@ Template.search.getCollections = function  () {
 	}
 	return Session.get("collections");
 }
+activeClass = {'background-color':'#0088cc',color:'#ffffff'};
+disabledClass = {'background-color':'',color:''};
+
+Template.search.rendered = function  () {
+
+	// console.log($(".query-results li[selected=true]"));
+    $(".query-results")
+        .children()
+        .first()
+        .css(activeClass)
+        .attr('selected','true');
+}
+
+Template.search.downSelect = function  () {
+	first = $(".query-results").children().first();
+	selected = $(".query-results [selected=selected]");
+	next = $(".query-results [selected=selected]").next();
+	if($(next).data('id') == null)
+		next = first;
+	$(selected).attr("selected",false);
+	$(selected).css(disabledClass);
+
+	$(next).attr("selected",true);
+	$(next).css(activeClass);
+}
+Template.search.upSelect = function  () {
+
+	last = $(".query-results").children().last();
+	
+	selected = $(".query-results [selected=selected]");
+	prev = $(".query-results [selected=selected]").prev();
+	
+	if($(prev).data('id') == null)
+		prev = last;
+	$(selected).attr("selected",false);
+	$(selected).css(disabledClass);
+
+	$(prev).attr("selected",true);
+	$(prev).css(activeClass);
+	Session.set('selectedElement',prev);
+}
+
 
 Template.search.events({
-	"keyup #input":function  () {
+	"keyup #input":function  (e) {
+		
+		console.log(e.keyCode);
+		if(e.keyCode === 40)
+		{
+			Template.search.downSelect();
+			
+			return;
+		}else if(e.keyCode === 38)
+		{
+			Template.search.upSelect();
+			
+			return;
+		}else if(e.keyCode === 13)
+		{
+			Template.search.upSelect();
+			
+			return;
+		}
+
+
+		console.log("asd");
 		value = $("#input").val();
 		value = value.split(" ");
 		queryKeyword = value[0];

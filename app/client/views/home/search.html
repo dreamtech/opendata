@@ -18,11 +18,11 @@
         {{#if isDataLoaded}}
         <ul class="list-stripped query-results">
             {{#each queryResults}}
-                <li selected='false' data-collection='{{ownCollection}}' data-id='{{_id}}' >{{name}}</li>
+                {{>resultItem}}
             {{/each}}
             {{#if isDataLoadedCollections}}
 				{{#each queryResultsCollections}}
-					 <li selected='false' data-collection='{{ownCollection}}' data-id='{{_id}}' >{{name}}</li>
+					 {{>resultItem}}
 				{{/each}}
 			{{/if}}
         </ul>

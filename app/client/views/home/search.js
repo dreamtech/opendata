@@ -1,4 +1,16 @@
 
+function ucfirst (str) {
+  // http://kevin.vanzonneveld.net
+  // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+  // +   bugfixed by: Onno Marsman
+  // +   improved by: Brett Zamir (http://brett-zamir.me)
+  // *     example 1: ucfirst('kevin van zonneveld');
+  // *     returns 1: 'Kevin van zonneveld'
+  str += '';
+  var f = str.charAt(0).toUpperCase();
+  return f + str.substr(1);
+}
+
 Template.search.queryResults = function  () {
 	return Session.get('queryResults')
 }
@@ -49,9 +61,117 @@ Template.search.getCollections = function  () {
 	}
 	return Session.get("collections");
 }
+activeClass = {'background-color':'#0088cc',color:'#ffffff'};
+disabledClass = {'background-color':'',color:''};
+
+Template.search.rendered = function  () {
+
+	currentKeywords = Session.get("currentKeywords");
+	for(key in currentKeywords)
+	{
+		console.log(key);
+		$(".query-results [data-id="+currentKeywords[key]+"]").hide();	
+	}
+	// console.log($(".query-results li[selected=true]"));
+    $(".query-results")
+        .children()
+        .first()
+        .css(activeClass)
+        .attr('selected','true');
+}
+
+Template.search.downSelect = function  () {
+	first = $(".query-results").children().first();
+	selected = $(".query-results [selected=selected]");
+	next = $(".query-results [selected=selected]").next();
+	if($(next).data('id') == null)
+		next = first;
+	$(selected).attr("selected",false);
+	$(selected).css(disabledClass);
+
+	$(next).attr("selected",true);
+	$(next).css(activeClass);
+	// Session.set('selectedElement',next);
+
+}
+
+Template.search.keywordVisible = function  (id) {
+	if(Session.get("currentKeywords") == id)
+		return "hidden";
+	else 
+		return "";
+}
+Template.search.upSelect = function  () {
+
+	last = $(".query-results").children().last();
+	
+	selected = $(".query-results [selected=selected]");
+	prev = $(".query-results [selected=selected]").prev();
+	
+	if($(prev).data('id') == null)
+		prev = last;
+	$(selected).attr("selected",false);
+	$(selected).css(disabledClass);
+
+	$(prev).attr("selected",true);
+	$(prev).css(activeClass);
+}
+
+Template.search.inputTex = "";
 
 Template.search.events({
-	"keyup #input":function  () {
+	"keyup #input":function  (e) {
+	// Session.set('selectedElement',prev);
+		value = $("#input").val();
+		if(value.length < 5)
+		{	Session.set("currentKeywords",null);
+			Session.set("currentKeyword",null);
+		}
+		if(e.keyCode === 40)
+		{
+			Template.search.downSelect();
+			
+			return;
+		}else if(e.keyCode === 38)
+		{
+			Template.search.upSelect();
+			
+			return;
+		}else if(e.keyCode === 13)
+		{
+			selected = $(".query-results [selected=selected]");
+
+			if($(selected).data('id') === null)
+			{	
+				return;
+			}
+			text = $(selected).text();
+			currentKeywords = Session.get("currentKeywords") != null?Session.get("currentKeywords"):{};
+			collection = $(selected).data('collection');
+			currentKeywords[collection] = $(selected).data('id');
+			Session.set("currentKeywords",currentKeywords);
+			
+			currentKeyword = Session.get("currentKeyword") != null?Session.get("currentKeyword"):"";
+			
+			if(!currentKeyword){
+				Session.set("currentKeyword",text);
+				console.log("asd");
+				console.log(text);
+				// text = "";
+			}
+			if (text != currentKeyword) {
+				text = currentKeyword + " " + text;
+			}else
+			{
+				text += " ";
+			}
+			// chosenText = Template.search.inputTex;
+			// console.log(text);
+			
+			// text = $(e.target).val();
+			text = text.trim();
+			$(e.target).val(text);
+		}
 		value = $("#input").val();
 		value = value.split(" ");
 		queryKeyword = value[0];
@@ -73,6 +193,11 @@ Template.search.events({
 	}
 });
 Deps.autorun(function() {
+	// Session.set("currentKeywordSelected","");
+	// Session.set("currentKeywords",{});
+	Session.set("queryResults",null);
+	Session.set("queryResultsCollections",null);
+
   try{
 	  sub = Meteor.subscribe("autocompleteKeywords", Session.get("queryKeyword"));
 	  if (sub.ready()) {

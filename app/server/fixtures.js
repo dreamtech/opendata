@@ -2,16 +2,16 @@
 
 if(Keywords.find().count() === 0){
 
-	Keywords.insert({name:"provincia",collections:'provincias'});
-	Keywords.insert({name:"escuela",collections:'schools'});
-	Keywords.insert({name:"escuelas",collections:'schools'});
-	Keywords.insert({name:"colegio",collections:'schools'});
-	Keywords.insert({name:"colegios",collections:'schools'});
-	Keywords.insert({name:"ciudad",collections:'municipios'});
-	Keywords.insert({name:"distrito municipal",collections:'distritos'});
-	Keywords.insert({name:"municipio",collections:'municipios'});
-	Keywords.insert({name:"secciones",collections:'secciones'});
-	Keywords.insert({name:"barrio",collections:'secciones'});
+	Keywords.insert({name:"provincia",collections:'provincias',ownCollection:'keywords'});
+	Keywords.insert({name:"escuela",collections:'schools',ownCollection:'keywords'});
+	Keywords.insert({name:"escuelas",collections:'schools',ownCollection:'keywords'});
+	Keywords.insert({name:"colegio",collections:'schools',ownCollection:'keywords'});
+	Keywords.insert({name:"colegios",collections:'schools',ownCollection:'keywords'});
+	Keywords.insert({name:"ciudad",collections:'municipios',ownCollection:'keywords'});
+	Keywords.insert({name:"distrito municipal",collections:'distritos',ownCollection:'keywords'});
+	Keywords.insert({name:"municipio",collections:'municipios',ownCollection:'keywords'});
+	Keywords.insert({name:"secciones",collections:'secciones',ownCollection:'keywords'});
+	Keywords.insert({name:"barrio",collections:'secciones',ownCollection:'keywords'});
 }
 if(Provincias.find().count() === 0){
 	provincias = [
@@ -50,6 +50,7 @@ if(Provincias.find().count() === 0){
 ];
 
 	for (var i = provincias.length - 1; i >= 0; i--) {
+        provincias[i]['ownCollection']='provincias';
 		Provincias.insert(provincias[i]);
 	};
 }
@@ -213,9 +214,10 @@ if(Municipios.find().count() === 0){
 	{name:'VILLA HERMOSA', dbReference:'220', idProvincia:'12'}
 ];
 
-for (var i = municipios.length - 1; i >= 0; i--) {
-	Municipios.insert(municipios[i]);
-};
+    for (var i = municipios.length - 1; i >= 0; i--) {
+        municipios[i]['ownCollection']='municipios';
+        Municipios.insert(municipios[i]);
+    };
 }
 
 if(Distritos.find().count() === 0){
@@ -607,7 +609,8 @@ if(Distritos.find().count() === 0){
 ];
 
 for (var i = distritos.length - 1; i >= 0; i--) {
-	Distritos.insert(distritos[i]);
+    distritos[i]['ownCollection']='distritos';
+    Distritos.insert(distritos[i]);
 };
 }
 
@@ -2177,6 +2180,7 @@ if(Secciones.find().count() === 0){
 	{name:'EL LIMÓN', dbReference:'1562', IdDistritoMunicipal:'384'}
 ];
 for (var i = secciones.length - 1; i >= 0; i--) {
+    secciones[i]['ownCollection']='secciones';
 	Secciones.insert(secciones[i]);
 };
 }
@@ -15361,6 +15365,7 @@ if(Schools.find().count() === 0){
 		];
 
 	for (var i = escuelas.length - 1; i >= 0; i--) {
+        escuelas[i]['ownCollection']='schools';
 		Schools.insert(escuelas[i]);
 	};
 	console.log("Finish fixtures");

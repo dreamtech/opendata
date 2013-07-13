@@ -64,22 +64,6 @@ Template.search.getCollections = function  () {
 activeClass = {'background-color':'#0088cc',color:'#ffffff'};
 disabledClass = {'background-color':'',color:''};
 
-Template.search.rendered = function  () {
-
-	currentKeywords = Session.get("currentKeywords");
-	for(key in currentKeywords)
-	{
-		console.log(key);
-		$(".query-results [data-id="+currentKeywords[key]+"]").hide();	
-	}
-	// console.log($(".query-results li[selected=true]"));
-    $(".query-results")
-        .children()
-        .first()
-        .css(activeClass)
-        .attr('selected','true');
-}
-
 Template.search.downSelect = function  () {
 	first = $(".query-results").children().first();
 	selected = $(".query-results [selected=selected]");
@@ -231,8 +215,9 @@ Deps.autorun(function() {
 
 });
 
-Template.search.rendered = function(){
-    $('#btn-advanced-search').on('click',function(){
+Template.search.rendered = function  () {
+
+	 $('#btn-advanced-search').on('click',function(){
         $('div#advanced-search').removeClass('hidden');
         $(this)
     });
@@ -240,4 +225,17 @@ Template.search.rendered = function(){
     $('#close').on('click', function(){
         $('div#advanced-search').addClass('hidden');
     });
+    
+	currentKeywords = Session.get("currentKeywords");
+	for(key in currentKeywords)
+	{
+		console.log(key);
+		$(".query-results [data-id="+currentKeywords[key]+"]").hide();	
+	}
+	// console.log($(".query-results li[selected=true]"));
+    $(".query-results")
+        .children()
+        .first()
+        .css(activeClass)
+        .attr('selected','true');
 }

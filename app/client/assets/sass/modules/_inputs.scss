@@ -5,25 +5,18 @@ input[type="tel"], input[type="color"], .uneditable-input {
   margin-bottom: 0;
 
 }
+.input-blue{
+  border: 2px solid $blue;
+}
 
-div#input-search {
-
-  input[type=text] {
-    float: left;
-    margin-right: 1%;
-    border: 0;
-    box-shadow: 0 0 0;
-    width: 80%;
-    &:focus {
-      box-shadow: 0 0 0;
-    }
-  }
-
+#input{
+  @extend .input-blue;
+  width: 70%;
 }
 
 .btn-blue {
   background: radial-gradient($blue, darken($blue, 2%));
-  border: 2px;
+  border: 2px solid $blue !important;
   border-radius: 4px;
   color: $white;
   font-weight: bold;
@@ -31,6 +24,7 @@ div#input-search {
   @include transition-duration(300ms);
 
   &:hover {
+    color: $white;
     text-decoration: none;
     box-shadow: 0 0 8px $blue;
   }
@@ -48,20 +42,21 @@ div#input-search {
 }
 
 #btn-search {
-  @extend .btn-blue;
-  float: right;
-  width: 15%;
-  margin: 0;
-  height: 45px;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  font-size: 20px;
+  height: inherit !important;
+  /*  @extend .btn-blue;
+    float: right;
+    width: 15%;
+    margin: 0;
+    height: 45px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 20px;
 
-  [class^="icon-"], [class*=" icon-"] {
-    margin-top: 3px;
-  }
+    [class^="icon-"], [class*=" icon-"] {
+      margin-top: 3px;
+    }*/
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -69,7 +64,6 @@ div#input-search {
 }
 
 a#btn-advanced-search {
-  top: 10px;
   position: relative;
   @include transition(all);
   @include transition-duration(200ms);

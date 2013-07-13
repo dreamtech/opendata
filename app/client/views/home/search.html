@@ -1,0 +1,31 @@
+<template name="search">
+	<div id="search" class="span10 content centered">
+	    <div id="title">
+	        <h1 class="text-center"><i class="icon-cloud-download icon-2x"></i>OpenData</h1>
+	    </div>
+	    <div id="input-search" class="centered span5">
+	        <input id="input" type="text" placeholder="ej: Republica Dominicana">
+	     <div class="container-btn">
+	        <a id="btn-advanced-search" href="#advanced-search"><i class="icon-chevron-down"></i></a>
+	        <button id="btn-search" type="submit"><i class="icon-search icon-white"></i></button>
+	         </div>
+	    </div>
+	</div>
+	<div class="centered span4">
+        {{#if isSearching}}
+        <div class="loading"><i class="icon-spinner icon-spin icon-large"></i> Cargando...</div>
+        {{/if}}
+        {{#if isDataLoaded}}
+        <ul class="list-stripped">
+            {{#each queryResults}}
+                <li>{{name}}</li>
+            {{/each}}
+            {{#if isDataLoadedCollections}}
+				{{#each queryResultsCollections}}
+					<li>{{name}}</li>
+				{{/each}}
+			{{/if}}
+        </ul>
+        {{/if}}
+    </div>
+</template>

@@ -1,15 +1,14 @@
-
-Template.query.queryResults = function  () {
+Template.search.queryResults = function  () {
 	return Session.get('queryResults')
 }
 
-Template.query.isSearching = function  () {
+Template.search.isSearching = function  () {
 	return Session.get("querySearching");
 }
-Template.query.isDataLoaded = function  () {
+Template.search.isDataLoaded = function  () {
 	return Session.get("queryDataLoaded");
 }
-Template.query.events({
+Template.search.events({
 	"keyup #input":function  () {
 		value = $("#input").val();
 
@@ -29,5 +28,8 @@ Template.query.events({
 			Session.set("queryResults",data);	
 			
 		});
+
+
+		// console.log(data.db_objects); 
 	}
 });
